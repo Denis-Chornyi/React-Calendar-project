@@ -8,16 +8,20 @@
   color: #fff;
 
   &__title {
+    font-weight: 700;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-bottom: 8px;
   }
+  &__description {
+    margin-top: 10px;
+  }
 
   &:hover {
     font-weight: bold;
-    background-color: red;
+    background-color: rgb(207, 11, 11);
   }
 }
 
