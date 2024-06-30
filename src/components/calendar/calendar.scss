@@ -38,7 +38,7 @@
   }
 
   &__time-slot {
-    height: 59px;
+    height: 60px;
     position: relative;
     border-bottom: 1px solid #eee;
   }
@@ -55,6 +55,7 @@
   align-items: center;
   justify-content: space-around;
   opacity: 0.6;
+  margin-bottom: 10px;
 
   &__day-name {
     font-size: 14px;
@@ -62,7 +63,13 @@
   }
 
   &__day-number {
+    padding: 7px;
     font-size: 22px;
+
+    &_today {
+      border-radius: 50%;
+      background-color: #6495ed;
+    }
   }
 }
 
