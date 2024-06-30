@@ -1,14 +1,25 @@
-import React from "react";
-
+import React, { useState } from "react";
 import Event from "../event/Event";
 import { formatMins } from "../../../src/utils/dateUtils.js";
+import Popup from "../popup/Popup.jsx";
+import "./hour.scss";
+import CurrentTime from "../currentTime/CurrentTime.jsx";
 
-const Hour = ({ dataHour, hourEvents }) => {
-   
+const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
+  const [popup, setPopup] = useState(false);
+  const [currentEventId, setCurrentEventId] = useState(null);
 
+  const openPopup = (id) => {
+    setCurrentEventId(id);
+    setPopup(true);
+  };
+
+  const closePopup = () => {
+    setPopup(false);
+    setCurrentEventId(null);
+  };
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
-      {/* if no events in the current hour nothing will render here */}
       {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
         const eventStart = `${dateFrom.getHours()}:${formatMins(
           dateFrom.getMinutes()
@@ -20,15 +31,25 @@ const Hour = ({ dataHour, hourEvents }) => {
         return (
           <Event
             key={id}
-            //calculating event height = duration of event in minutes
             height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
             description={description}
+            openPopup={() => openPopup(id)}
           />
         );
       })}
+      {popup && (
+        <Popup
+          closePopup={closePopup}
+          handleEventDelete={handleEventDelete}
+          id={currentEventId}
+        />
+      )}
+      {dataHour === new Date().getHours() && (
+        <CurrentTime dataDay={dataDay} month={month} />
+      )}
     </div>
   );
 };
