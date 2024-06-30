@@ -9,14 +9,20 @@ export const createEvent = (eventDate) =>
     body: JSON.stringify(eventDate),
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to create event");
+      throw new Error(`Internal Server Error. Can't display events`);
     }
   });
 
 export const fetchEvent = () =>
   fetch(baseUrl).then((res) => {
     if (res.ok) {
-      return res.json();
+      return res.json().then((events) =>
+        events.map((event) => ({
+          ...event,
+          dateFrom: new Date(event.dateFrom),
+          dateTo: new Date(event.dateTo),
+        }))
+      );
     }
   });
 
@@ -29,7 +35,7 @@ export const updateEvent = (eventId, eventData) =>
     body: JSON.stringify(eventData),
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to create event");
+      throw new Error(`Internal Server Error. Can't display events`);
     }
   });
 
@@ -38,6 +44,6 @@ export const deleteEvent = (eventId) =>
     method: "DELETE",
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to delete event");
+      throw new Error(`Internal Server Error. Can't display events`);
     }
   });

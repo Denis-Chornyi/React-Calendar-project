@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-
-import "./header.scss";
 import Modal from "../modal/Modal";
-import { getDisplayedMonth } from "../../utils/dateUtils";
+import "./header.scss";
 
-const Header = ({ weekBefore, weekAfter, currentWeek, month }) => {
-  const [modal, setModal] = useState(false);
+const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const openModal = () => {
-    setModal(true);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setModal(false);
+    setIsModalOpen(false);
   };
+
   return (
     <header className="header">
       <button onClick={openModal} className="button create-event-btn">
@@ -34,10 +34,9 @@ const Header = ({ weekBefore, weekAfter, currentWeek, month }) => {
         >
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month"></span>
+        <span className="navigation__displayed-month">{month}</span>
       </div>
-      {modal && <Modal closeModal={closeModal} />}
-      <span>{month}</span>
+      {isModalOpen && <Modal closeModal={closeModal} onCreate={onCreate} />}
     </header>
   );
 };

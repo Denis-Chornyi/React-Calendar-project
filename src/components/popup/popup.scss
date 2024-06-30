@@ -1,0 +1,47 @@
+.popup {
+  position: absolute;
+  left: 80%;
+  top: 100%;
+  z-index: 10;
+
+  &__content {
+    text-align: right;
+    background: #fff;
+    padding: 12px;
+    border: 1px solid #808080;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px #000000bf;
+  }
+
+  &__close-btn {
+    transform: rotate(45deg) scale(2);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+  }
+
+  &__btn {
+    width: 96px;
+    display: flex;
+    align-items: baseline;
+    text-align: start;
+    background-color: transparent;
+    margin-top: 8px;
+    border-color: #6495ed;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #3838c93b;
+    }
+  }
+
+  &__btn-description {
+    margin: 0;
+    margin-left: 14px;
+  }
+}
