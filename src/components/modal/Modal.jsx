@@ -7,7 +7,6 @@ const Modal = ({ closeModal, onCreate }) => {
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
-  const [colorId, setColorId] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();

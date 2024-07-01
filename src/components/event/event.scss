@@ -6,6 +6,7 @@
   border-radius: 8px;
   padding: 8px;
   color: #fff;
+  cursor: pointer;
 
   &__title {
     font-weight: 700;
@@ -21,11 +22,6 @@
 
   &:hover {
     font-weight: bold;
-    background-color: rgb(207, 11, 11);
+    background-color: #cf0b0b;
   }
 }
-
-// .delete-event-btn {
-//   cursor: pointer;
-//   border: none;
-// }

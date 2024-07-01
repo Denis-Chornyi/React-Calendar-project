@@ -1,8 +1,4 @@
 .calendar {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 60px);
-
   &__time-scale {
     height: 100%;
     width: 48px;
@@ -13,6 +9,10 @@
   height: 60px;
   width: 48px;
   text-align: right;
+
+  &:first-child {
+    visibility: hidden;
+  }
 
   &__time {
     position: relative;

@@ -30,7 +30,6 @@ const CurrentTime = ({ dataDay, month }) => {
       className="current-time"
       data-month={currentMonth}
       data-day={currentDay}
-      data-time={now.getHours()}
     >
       <div className="current-time__circle"></div>
       <div className="current-time__line"></div>

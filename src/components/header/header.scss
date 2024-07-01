@@ -3,14 +3,23 @@
   height: 60px;
   padding: 0 48px;
   align-items: center;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 10px;
 }
 
 .create-event-btn {
-  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  box-shadow: 0px 4px 4px -3px #000000bf;
 
   &__icon {
     margin-right: 8px;
   }
+}
+
+.create-event-description {
+  margin-left: 5px;
 }
 
 .navigation {

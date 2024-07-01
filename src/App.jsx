@@ -10,7 +10,6 @@ import {
   createEvent,
   deleteEvent,
   fetchEvent,
-  updateEvent,
 } from "../src/gateway/eventsGateways";
 import "./common.scss";
 import Modal from "./components/modal/Modal.jsx";
@@ -41,12 +40,6 @@ const App = () => {
 
   const onCreate = (newEvent) => {
     createEvent(newEvent).then(() => fetchEvent().then(setEvents));
-  };
-
-  const onUpdate = (updatedEvent) => {
-    updateEvent(updatedEvent.id, updatedEvent).then(() =>
-      fetchEvent().then(setEvents)
-    );
   };
 
   const handleEventDelete = (id) => {
@@ -84,7 +77,6 @@ const App = () => {
           closeModal={closeEditModal}
           event={eventToEdit}
           onCreate={onCreate}
-          onUpdate={onUpdate}
         />
       )}
     </>

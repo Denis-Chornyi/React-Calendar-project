@@ -5,9 +5,12 @@
   z-index: 10;
 
   &__content {
-    text-align: right;
+    width: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #fff;
-    padding: 12px;
+    padding: 10px;
     border: 1px solid #808080;
     border-radius: 8px;
     box-shadow: 0px 0px 8px 0px #000000bf;
@@ -25,19 +28,12 @@
   }
 
   &__btn {
-    width: 96px;
+    width: 10px;
     display: flex;
-    align-items: baseline;
-    text-align: start;
     background-color: transparent;
-    margin-top: 8px;
-    border-color: #6495ed;
-
+    border: none;
+    outline: none;
     cursor: pointer;
-
-    &:hover {
-      background-color: #3838c93b;
-    }
   }
 
   &__btn-description {

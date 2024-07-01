@@ -17,7 +17,7 @@ const Week = ({ month, events, handleEventDelete, weekDates }) => {
 
         return (
           <Day
-            key={dayStart.toString()}
+            key={dayStart}
             dataDay={dayStart.getDate()}
             dayEvents={dayEvents}
             handleEventDelete={handleEventDelete}

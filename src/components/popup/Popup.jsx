@@ -5,18 +5,6 @@ const Popup = ({ closePopup, handleEventDelete, id }) => {
   return (
     <div className="popup ">
       <div className="popup__content">
-        <button onClick={closePopup} className="popup__close-btn">
-          +
-        </button>
-        <button
-          onClick={() => {
-            closePopup();
-          }}
-          className="popup__btn edit__event-btn"
-        >
-          <i className="fas fa-pencil-alt"></i>
-          <p className="popup__btn-description">Edit</p>
-        </button>
         <button
           onClick={() => {
             handleEventDelete(id);
@@ -25,11 +13,10 @@ const Popup = ({ closePopup, handleEventDelete, id }) => {
           className="popup__btn delete-event-btn"
         >
           <i className="fas fa-trash"></i>
-          <p className="popup__btn-description">Delete</p>
+          <p className="popup__btn-description"></p>
         </button>
-        <button className="popup__btn events-colors__btn">
-          <i className="fas fa-palette"></i>
-          <p className="popup__btn-description">Color</p>
+        <button onClick={closePopup} className="popup__close-btn">
+          +
         </button>
       </div>
       <span className="events-colors">

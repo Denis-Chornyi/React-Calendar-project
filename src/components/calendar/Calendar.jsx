@@ -4,6 +4,8 @@ import Week from "../week/Week";
 import Sidebar from "../sidebar/Sidebar";
 import Modal from "../modal/Modal";
 import "./calendar.scss";
+import Decoration from "../decoration/Decoration";
+
 
 const Calendar = ({
   month,
@@ -20,6 +22,7 @@ const Calendar = ({
       <Navigation weekDates={weekDates} />
       <div className="calendar__body">
         <div className="calendar__week-container">
+          <Decoration />
           <Sidebar />
           <Week
             weekDates={weekDates}

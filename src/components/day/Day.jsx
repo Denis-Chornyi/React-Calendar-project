@@ -13,6 +13,7 @@ const Day = ({ month, dataDay, dayEvents, handleEventDelete }) => {
         const hourEvents = dayEvents.filter(
           (event) => event.dateFrom.getHours() === hour
         );
+
         return (
           <Hour
             key={dataDay + hour}

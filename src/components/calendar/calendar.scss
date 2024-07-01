@@ -18,15 +18,16 @@
     display: flex;
     width: 100%;
     height: fit-content;
-    margin-top: 10px;
   }
 
   &__time-scale {
+    margin-top: 26px;
     height: 100%;
     width: 48px;
   }
 
   &__week {
+    margin-top: 26px;
     display: flex;
     flex: 1;
   }
@@ -63,8 +64,11 @@
   }
 
   &__day-number {
+    width: 40px;
+    height: 40px;
     padding: 7px;
     font-size: 22px;
+    text-align: center;
 
     &_today {
       border-radius: 50%;
