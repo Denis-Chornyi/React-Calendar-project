@@ -1,5 +1,6 @@
 import React from "react";
 import "./popup.scss";
+import PropTypes from "prop-types";
 
 const Popup = ({ closePopup, handleEventDelete, id }) => {
   return (
@@ -27,3 +28,7 @@ const Popup = ({ closePopup, handleEventDelete, id }) => {
 };
 
 export default Popup;
+
+Popup.propTypes = {
+  id: PropTypes.string.isRequired,
+};

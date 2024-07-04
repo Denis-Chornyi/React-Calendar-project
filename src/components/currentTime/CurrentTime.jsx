@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDisplayedMonth, getWeekStartDate } from "../../utils/dateUtils";
 import "./currentTime.scss";
+import PropTypes from "prop-types";
 
 const CurrentTime = ({ dataDay, month }) => {
   const [style, setStyle] = useState({
@@ -38,3 +39,8 @@ const CurrentTime = ({ dataDay, month }) => {
 };
 
 export default CurrentTime;
+
+CurrentTime.propTypes = {
+  dataDay: PropTypes.number.isRequired,
+  month: PropTypes.string.isRequired,
+};

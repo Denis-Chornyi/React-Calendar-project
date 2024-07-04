@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../modal/Modal";
 import "./header.scss";
+import PropTypes from "prop-types";
 
 const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,3 +55,9 @@ const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  weekBefore: PropTypes.func.isRequired,
+  weekAfter: PropTypes.func.isRequired,
+  currentWeek: PropTypes.func.isRequired,
+};

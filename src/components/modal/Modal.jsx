@@ -15,12 +15,10 @@ const Modal = ({ closeModal, onCreate }) => {
       description,
       dateFrom: new Date(`${date}T${startTime}`),
       dateTo: new Date(`${date}T${endTime}`),
-      colorId,
     };
     onCreate(newEvent);
     closeModal();
   };
-
   return (
     <div className="modal overlay">
       <div className="modal__content">

@@ -5,7 +5,7 @@ import Sidebar from "../sidebar/Sidebar";
 import Modal from "../modal/Modal";
 import "./calendar.scss";
 import Decoration from "../decoration/Decoration";
-
+import PropTypes from "prop-types";
 
 const Calendar = ({
   month,
@@ -13,7 +13,6 @@ const Calendar = ({
   onCreate,
   handleEventDelete,
   weekDates,
-  handleEventChange,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,7 +28,6 @@ const Calendar = ({
             month={month}
             events={events}
             handleEventDelete={handleEventDelete}
-            handleEventChange={handleEventChange}
           />
           {isModalOpen && (
             <Modal
@@ -44,3 +42,7 @@ const Calendar = ({
 };
 
 export default Calendar;
+
+Calendar.propTypes = {
+  events: PropTypes.array.isRequired,
+};

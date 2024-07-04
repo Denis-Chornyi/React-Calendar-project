@@ -4,6 +4,7 @@ import { formatMins } from "../../../src/utils/dateUtils.js";
 import Popup from "../popup/Popup.jsx";
 import "./hour.scss";
 import CurrentTime from "../currentTime/CurrentTime.jsx";
+import PropTypes from "prop-types";
 
 const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
   const [popup, setPopup] = useState(false);
@@ -18,6 +19,7 @@ const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
     setPopup(false);
     setCurrentEventId(null);
   };
+
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
       {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
@@ -55,3 +57,8 @@ const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
 };
 
 export default Hour;
+
+Hour.propTypes = {
+  dataHour: PropTypes.number.isRequired,
+  hourEvents: PropTypes.array.isRequired,
+};

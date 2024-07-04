@@ -15,7 +15,6 @@ const Decoration = () => {
       .padStart(2, "0")}`;
     return offsetString;
   };
-  console.log();
   return (
     <div className="calendar__week-decoration">
       {decorationSlot.map((slot) => (
