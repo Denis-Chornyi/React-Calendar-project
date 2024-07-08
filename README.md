@@ -1,6 +1,6 @@
 ## Project: Google calendar
 
-### [GitHub Page]()
+### [GitHub Page](https://denis-chornyi.github.io/React-Calendar-project/)
 
 ### The tech stack is:
 
