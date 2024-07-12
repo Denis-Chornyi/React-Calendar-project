@@ -11,7 +11,6 @@
   &__title {
     font-weight: 700;
     width: 100%;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-bottom: 8px;
@@ -20,9 +19,23 @@
     margin-top: 10px;
     overflow-x: auto;
   }
+  &__close-btn {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 
   &:hover {
     font-weight: bold;
-    background-color: #cf0b0b;
+    background-color: #cf0b0bc4;
   }
 }

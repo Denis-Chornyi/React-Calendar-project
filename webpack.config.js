@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
       open: true,
       hot: true,
-      port: 7010,
+      port: 5030,
     },
   };
 
