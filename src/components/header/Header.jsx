@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Modal from "../modal/Modal";
-import "./header.scss";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import Modal from '../modal/Modal';
+import './header.scss';
+import PropTypes from 'prop-types';
 
-const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
+const Header = ({ month, onCreate, setWeekStartDate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -14,15 +14,22 @@ const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
     setIsModalOpen(false);
   };
 
+  const changeWeek = days => {
+    setWeekStartDate(prevDate => {
+      const newDate = new Date(prevDate);
+      newDate.setDate(newDate.getDate() + days);
+      return newDate;
+    });
+  };
+
+  const weekBefore = () => changeWeek(-7);
+  const weekAfter = () => changeWeek(7);
+  const currentWeek = () => setWeekStartDate(new Date());
+
   return (
     <header className="header">
       <button onClick={openModal} className="button create-event-btn">
-        <svg
-          className="create-event-btn-plus"
-          width="36"
-          height="36"
-          viewBox="0 0 36 36"
-        >
+        <svg className="create-event-btn-plus" width="36" height="36" viewBox="0 0 36 36">
           <path fill="#34A853" d="M16 16v14h4V20z"></path>
           <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path>
           <path fill="#FBBC05" d="M6 16v4h10l4-4z"></path>
@@ -35,16 +42,10 @@ const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
         <button onClick={currentWeek} className="navigation__today-btn button">
           Today
         </button>
-        <button
-          onClick={weekBefore}
-          className="icon-button navigation__nav-icon"
-        >
+        <button onClick={weekBefore} className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-left"></i>
         </button>
-        <button
-          onClick={weekAfter}
-          className="icon-button navigation__nav-icon"
-        >
+        <button onClick={weekAfter} className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-right"></i>
         </button>
         <span className="navigation__displayed-month">{month}</span>
@@ -55,9 +56,3 @@ const Header = ({ weekBefore, weekAfter, currentWeek, month, onCreate }) => {
 };
 
 export default Header;
-
-Header.propTypes = {
-  weekBefore: PropTypes.func.isRequired,
-  weekAfter: PropTypes.func.isRequired,
-  currentWeek: PropTypes.func.isRequired,
-};

@@ -1,24 +1,35 @@
-import React, { useState } from "react";
-import "./modal.scss";
+import React, { useState } from 'react';
+import './modal.scss';
 
 const Modal = ({ closeModal, onCreate }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    date: '',
+    startTime: '',
+    endTime: ''
+  });
 
-  const handleSubmit = (event) => {
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = event => {
     event.preventDefault();
     const newEvent = {
-      title,
-      description,
-      dateFrom: new Date(`${date}T${startTime}`),
-      dateTo: new Date(`${date}T${endTime}`),
+      title: formData.title,
+      description: formData.description,
+      dateFrom: new Date(`${formData.date}T${formData.startTime}`),
+      dateTo: new Date(`${formData.date}T${formData.endTime}`)
     };
     onCreate(newEvent);
     closeModal();
   };
+
   return (
     <div className="modal overlay">
       <div className="modal__content">
@@ -32,39 +43,39 @@ const Modal = ({ closeModal, onCreate }) => {
               name="title"
               placeholder="Title"
               className="event-form__field"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={formData.title}
+              onChange={handleChange}
             />
             <div className="event-form__time">
               <input
                 type="date"
                 name="date"
                 className="event-form__field"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
+                value={formData.date}
+                onChange={handleChange}
               />
               <input
                 type="time"
                 name="startTime"
                 className="event-form__field"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
+                value={formData.startTime}
+                onChange={handleChange}
               />
               <span>-</span>
               <input
                 type="time"
                 name="endTime"
                 className="event-form__field"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
+                value={formData.endTime}
+                onChange={handleChange}
               />
             </div>
             <textarea
               name="description"
               placeholder="Description"
               className="event-form__field"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={formData.description}
+              onChange={handleChange}
             ></textarea>
 
             <button type="submit" className="event-form__submit-btn">

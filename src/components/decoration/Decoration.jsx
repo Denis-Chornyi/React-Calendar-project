@@ -4,7 +4,7 @@ import "./decoration.scss";
 const Decoration = () => {
   const decorationSlot = Array(8)
     .fill()
-    .map((val, index) => index);
+    .map((_, index) => index);
 
   const getCurrentGMTOffset = () => {
     const offsetMinutes = new Date().getTimezoneOffset();
