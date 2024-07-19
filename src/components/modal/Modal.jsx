@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './modal.scss';
+import { createEvent, fetchEvent } from '../../gateway/eventsGateways';
 
-const Modal = ({ closeModal, onCreate }) => {
+const Modal = ({ closeModal, setEvents }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -9,6 +10,10 @@ const Modal = ({ closeModal, onCreate }) => {
     startTime: '',
     endTime: ''
   });
+
+  const onCreate = newEvent => {
+    createEvent(newEvent).then(() => fetchEvent().then(setEvents));
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -76,7 +81,7 @@ const Modal = ({ closeModal, onCreate }) => {
               className="event-form__field"
               value={formData.description}
               onChange={handleChange}
-            ></textarea>
+            />
 
             <button type="submit" className="event-form__submit-btn">
               Create

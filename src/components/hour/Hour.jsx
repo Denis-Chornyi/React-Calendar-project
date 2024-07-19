@@ -4,11 +4,9 @@ import { formatMins } from '../../../src/utils/dateUtils.js';
 import './hour.scss';
 import CurrentTime from '../currentTime/CurrentTime.jsx';
 import PropTypes from 'prop-types';
+import { MILLISECONDS_IN_A_MINUTE } from '../../constants.js';
 
-const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
-  const MILLISECONDS_IN_A_SECOND = 1000;
-  const SECONDS_IN_A_MINUTE = 60;
-  const MILLISECONDS_IN_A_MINUTE = MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE;
+const Hour = ({ dataHour, hourEvents, setEvents, dataDay, month }) => {
 
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
@@ -25,7 +23,7 @@ const Hour = ({ dataHour, hourEvents, handleEventDelete, dataDay, month }) => {
             title={title}
             description={description}
             closeEvent={() => closeEvent(id)}
-            handleEventDelete={handleEventDelete}
+            setEvents={setEvents}
             id={id}
           />
         );

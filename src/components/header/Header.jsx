@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Modal from '../modal/Modal';
 import './header.scss';
+import { getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
 import PropTypes from 'prop-types';
 
-const Header = ({ month, onCreate, setWeekStartDate }) => {
+const Header = ({ weekStartDate, setEvents, setWeekStartDate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -13,6 +14,8 @@ const Header = ({ month, onCreate, setWeekStartDate }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  console.log(weekStartDate);
+  const month = getDisplayedMonth(getWeekStartDate(weekStartDate));
 
   const changeWeek = days => {
     setWeekStartDate(prevDate => {
@@ -50,9 +53,14 @@ const Header = ({ month, onCreate, setWeekStartDate }) => {
         </button>
         <span className="navigation__displayed-month">{month}</span>
       </div>
-      {isModalOpen && <Modal closeModal={closeModal} onCreate={onCreate} />}
+      {isModalOpen && <Modal closeModal={closeModal} setEvents={setEvents} />}
     </header>
   );
 };
 
 export default Header;
+
+Header.propTypes = {
+  setEvents: PropTypes.func.isRequired,
+  setWeekStartDate: PropTypes.func.isRequired
+};

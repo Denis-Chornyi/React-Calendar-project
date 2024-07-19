@@ -3,11 +3,16 @@ import './event.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { deleteEvent, fetchEvent } from '../../gateway/eventsGateways';
 
-const Event = ({ height, marginTop, title, time, description, handleEventDelete, id }) => {
+const Event = ({ height, marginTop, title, time, description, setEvents, id }) => {
   const eventStyle = {
     height,
     marginTop
+  };
+
+  const handleEventDelete = id => {
+    deleteEvent(id).then(() => fetchEvent().then(setEvents));
   };
 
   const handleDeleteClick = e => {
@@ -33,7 +38,6 @@ Event.propTypes = {
   title: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  handleEventDelete: PropTypes.func.isRequired,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired // Додаємо цей пропс, якщо він відсутній
 };
 

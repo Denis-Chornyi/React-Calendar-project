@@ -24,6 +24,7 @@ export const fetchEvent = () =>
         }))
       );
     }
+    throw new Error(`Internal Server Error. Can't display events`);
   });
 
 export const deleteEvent = eventId =>

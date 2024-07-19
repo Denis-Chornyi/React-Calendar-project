@@ -38,7 +38,6 @@ export const formatMins = (mins) => {
 export const getDisplayedMonth = (date) => {
   const weekStart = moment(date).startOf("week");
   const weekEnd = moment(date).endOf("week");
-
   const startMonth = weekStart.format("MMM");
   const startYear = weekStart.format("YYYY");
   const endMonth = weekEnd.format("MMM");

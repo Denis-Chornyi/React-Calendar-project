@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { getDisplayedMonth, getWeekStartDate } from "../../utils/dateUtils";
-import "./currentTime.scss";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
+import { getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
+import './currentTime.scss';
+import PropTypes from 'prop-types';
 
 const CurrentTime = ({ dataDay, month }) => {
+  const MILLISECONDS_IN_A_SECOND = 1000;
+  const SECONDS_IN_A_MINUTE = 60;
+  const MILLISECONDS_IN_A_MINUTE = MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE;
+
   const [style, setStyle] = useState({
-    top: `${new Date().getMinutes() - 2.5}px`,
+    top: `${new Date().getMinutes() - 2.5}px`
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setStyle({ top: `${new Date().getMinutes() - 2.5}px` });
-    }, 1000 * 60);
+    }, MILLISECONDS_IN_A_MINUTE);
 
     return () => clearInterval(interval);
   }, []);
@@ -26,12 +30,7 @@ const CurrentTime = ({ dataDay, month }) => {
   }
 
   return (
-    <div
-      style={style}
-      className="current-time"
-      data-month={currentMonth}
-      data-day={currentDay}
-    >
+    <div style={style} className="current-time" data-month={currentMonth} data-day={currentDay}>
       <div className="current-time__circle"></div>
       <div className="current-time__line"></div>
     </div>
@@ -42,5 +41,5 @@ export default CurrentTime;
 
 CurrentTime.propTypes = {
   dataDay: PropTypes.number.isRequired,
-  month: PropTypes.string.isRequired,
+  month: PropTypes.string.isRequired
 };

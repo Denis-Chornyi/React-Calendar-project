@@ -2,7 +2,7 @@ import React from 'react';
 import Hour from '../hour/Hour';
 import PropTypes from 'prop-types';
 
-const Day = ({ month, dataDay, dayEvents, handleEventDelete }) => {
+const Day = ({ month, dataDay, dayEvents, setEvents }) => {
   const hours = Array(24)
     .fill()
     .map((_, index) => index);
@@ -17,7 +17,7 @@ const Day = ({ month, dataDay, dayEvents, handleEventDelete }) => {
             key={dataDay + hour}
             dataHour={hour}
             hourEvents={hourEvents}
-            handleEventDelete={handleEventDelete}
+            setEvents={setEvents}
             dataDay={dataDay}
             month={month}
           />
