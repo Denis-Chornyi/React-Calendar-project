@@ -14,7 +14,7 @@ const Header = ({ weekStartDate, setEvents, setWeekStartDate }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  console.log(weekStartDate);
+
   const month = getDisplayedMonth(getWeekStartDate(weekStartDate));
 
   const changeWeek = days => {

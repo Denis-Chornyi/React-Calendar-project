@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
-import Modal from '../modal/Modal';
 import './calendar.scss';
 import Decoration from '../decoration/Decoration';
 import PropTypes from 'prop-types';
 import { generateWeekRange, getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
 
-const Calendar = ({ events, onCreate, setEvents, weekStartDate }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+const Calendar = ({ events, setEvents, weekStartDate }) => {
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
   const month = getDisplayedMonth(getWeekStartDate(weekStartDate));
 
@@ -22,7 +19,6 @@ const Calendar = ({ events, onCreate, setEvents, weekStartDate }) => {
           <Decoration />
           <Sidebar />
           <Week weekDates={weekDates} month={month} events={events} setEvents={setEvents} />
-          {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} onCreate={onCreate} />}
         </div>
       </div>
     </section>

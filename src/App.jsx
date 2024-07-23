@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
-import { getWeekStartDate, generateWeekRange, getDisplayedMonth } from '../src/utils/dateUtils.js';
 import { fetchEvent } from '../src/gateway/eventsGateways';
 import './common.scss';
 
@@ -12,7 +11,6 @@ const App = () => {
   useEffect(() => {
     fetchEvent().then(setEvents);
   }, []);
-
 
   return (
     <>

@@ -15,16 +15,16 @@ export const createEvent = eventDate =>
 
 export const fetchEvent = () =>
   fetch(baseUrl).then(res => {
-    if (res.ok) {
-      return res.json().then(events =>
-        events.map(event => ({
-          ...event,
-          dateFrom: new Date(event.dateFrom),
-          dateTo: new Date(event.dateTo)
-        }))
-      );
+    if (!res.ok) {
+      throw new Error(`Internal Server Error. Can't display events`);
     }
-    throw new Error(`Internal Server Error. Can't display events`);
+    return res.json().then(events =>
+      events.map(event => ({
+        ...event,
+        dateFrom: new Date(event.dateFrom),
+        dateTo: new Date(event.dateTo)
+      }))
+    );
   });
 
 export const deleteEvent = eventId =>

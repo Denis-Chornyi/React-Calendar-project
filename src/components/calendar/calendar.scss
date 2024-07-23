@@ -13,6 +13,9 @@
     display: flex;
     overflow: auto;
   }
+  &__body::-webkit-scrollbar {
+    width: 0;
+  }
 
   &__week-container {
     display: flex;
