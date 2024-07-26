@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Modal from '../modal/Modal';
-import './header.scss';
 import { getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
 import PropTypes from 'prop-types';
+import './header.scss';
 
 const Header = ({ weekStartDate, setEvents, setWeekStartDate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './modal.scss';
 import { createEvent, fetchEvent } from '../../gateway/eventsGateways';
+import PropTypes from 'prop-types';
+import './modal.scss';
 
 const Modal = ({ closeModal, setEvents }) => {
   const [formData, setFormData] = useState({
@@ -94,3 +95,8 @@ const Modal = ({ closeModal, setEvents }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  setEvents: PropTypes.func.isRequired
+};

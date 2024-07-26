@@ -2,10 +2,10 @@ import React from 'react';
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
-import './calendar.scss';
 import Decoration from '../decoration/Decoration';
 import PropTypes from 'prop-types';
 import { generateWeekRange, getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
+import './calendar.scss';
 
 const Calendar = ({ events, setEvents, weekStartDate }) => {
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
@@ -28,5 +28,6 @@ const Calendar = ({ events, setEvents, weekStartDate }) => {
 export default Calendar;
 
 Calendar.propTypes = {
-  events: PropTypes.array.isRequired
+  events: PropTypes.array.isRequired,
+  setEvents: PropTypes.func.isRequired
 };

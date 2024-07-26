@@ -1,13 +1,12 @@
 import React from 'react';
 import Event from '../event/Event';
 import { formatMins } from '../../../src/utils/dateUtils.js';
-import './hour.scss';
 import CurrentTime from '../currentTime/CurrentTime.jsx';
 import PropTypes from 'prop-types';
 import { MILLISECONDS_IN_A_MINUTE } from '../../constants.js';
+import './hour.scss';
 
 const Hour = ({ dataHour, hourEvents, setEvents, dataDay, month }) => {
-
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
       {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
@@ -37,5 +36,8 @@ export default Hour;
 
 Hour.propTypes = {
   dataHour: PropTypes.number.isRequired,
-  hourEvents: PropTypes.array.isRequired
+  hourEvents: PropTypes.array.isRequired,
+  setEvents: PropTypes.func.isRequired,
+  dataDay: PropTypes.number.isRequired,
+  month: PropTypes.string.isRequired
 };

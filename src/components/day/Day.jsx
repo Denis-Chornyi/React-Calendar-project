@@ -30,5 +30,8 @@ const Day = ({ month, dataDay, dayEvents, setEvents }) => {
 export default Day;
 
 Day.propTypes = {
-  dayEvents: PropTypes.array.isRequired
+  dayEvents: PropTypes.array.isRequired,
+  month: PropTypes.string.isRequired,
+  dataDay: PropTypes.number.isRequired,
+  setEvents: PropTypes.func.isRequired
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-import './event.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { deleteEvent, fetchEvent } from '../../gateway/eventsGateways';
+import './event.scss';
 
 const Event = ({ height, marginTop, title, time, description, setEvents, id }) => {
   const eventStyle = {
@@ -38,7 +38,8 @@ Event.propTypes = {
   title: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired // Додаємо цей пропс, якщо він відсутній
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  setEvents: PropTypes.func.isRequired
 };
 
 export default Event;

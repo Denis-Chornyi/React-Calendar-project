@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getDisplayedMonth, getWeekStartDate } from '../../utils/dateUtils';
-import './currentTime.scss';
 import PropTypes from 'prop-types';
 import { MILLISECONDS_IN_A_MINUTE } from '../../constants';
+import './currentTime.scss';
 
 const CurrentTime = ({ dataDay, month }) => {
-
-
   const [style, setStyle] = useState({
     top: `${new Date().getMinutes() - 2.5}px`
   });
